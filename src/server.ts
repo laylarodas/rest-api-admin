@@ -1,10 +1,10 @@
 import express from "express";
+import router from "./router";
+
 
 const server = express();
 
+server.use('/api/products',router);
 
-server.get('/', (req, res) => {
-    res.send('Hello World');
-});
 
 export default server;
