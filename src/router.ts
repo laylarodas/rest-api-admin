@@ -1,12 +1,21 @@
 import { Router } from 'express';
-import { createProduct, getProducts } from './handlers/product';
-import { body } from 'express-validator';
+import { createProduct, getProductById, getProducts } from './handlers/product';
+import { body, param } from 'express-validator';
 import { handleInputErrors } from './middlewares';
 
 const router = Router();
 
-router.get('/', getProducts);
+// route get all products
+router.get('/', getProducts)
 
+// route get product by id
+router.get('/:id',
+    param('id').isInt().withMessage('Id has to be integer'),
+    handleInputErrors,
+    getProductById);
+
+
+    // route create product
 router.post('/',
     body('name')
         .notEmpty().withMessage('Name is required')
@@ -18,7 +27,9 @@ router.post('/',
         .custom(value => value > 0).withMessage('Price has to be greater than 0'),
     handleInputErrors,
     createProduct
-);
+)
+
+
 
 
 export default router;

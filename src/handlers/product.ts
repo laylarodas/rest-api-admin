@@ -1,5 +1,4 @@
 import { Request, Response } from 'express'
-import { validationResult } from 'express-validator'
 import Product from '../models/Product.model'
 
 export const getProducts = async (req: Request, res: Response) => {
@@ -7,7 +6,26 @@ export const getProducts = async (req: Request, res: Response) => {
         const products = await Product.findAll({
             order: [['createdAt', 'DESC']]
         })
-        res.json({ data: products })  
+        res.json({ data: products })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+export const getProductById = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params
+        const product = await Product.findByPk(id)
+
+
+
+        if (!product) {
+            res.status(404).json({ error: 'Product not found' })
+        }
+
+        res.json({ data: product })
+
     } catch (error) {
         console.log(error)
     }
