@@ -1,7 +1,7 @@
 import express from "express";
 import router from "./router";
 import db from './config/db';
-
+import colors from 'colors';
 
 
 //connect to db
@@ -9,11 +9,11 @@ async function connectDB() {
     try {
         await db.authenticate();
         db.sync();
-        console.log('Connected successfully to db')
+        console.log(colors.bgCyan('Connected successfully to db'))
 
     } catch (error) {
         console.log(error)
-        console.log('Failed to connect to db')
+        console.log(colors.bgRed.white('Failed to connect to db'))
     }
 }
 
