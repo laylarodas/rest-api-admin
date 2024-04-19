@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createProduct, getProductById, getProducts } from './handlers/product';
+import { createProduct, deleteProduct, getProductById, getProducts, updateProduct, updatedAvailability } from './handlers/product';
 import { body, param } from 'express-validator';
 import { handleInputErrors } from './middlewares';
 
@@ -15,7 +15,7 @@ router.get('/:id',
     getProductById);
 
 
-    // route create product
+// route create product
 router.post('/',
     body('name')
         .notEmpty().withMessage('Name is required')
@@ -29,7 +29,35 @@ router.post('/',
     createProduct
 )
 
+// route update product
+router.put('/:id',
+    param('id').isInt().withMessage('Id has to be integer'),
+    body('name')
+        .notEmpty().withMessage('Name is required')
+        .isString().withMessage('Name has to be string'),
+
+    body('price')
+        .notEmpty().withMessage('Price is required')
+        .isNumeric().withMessage('Price has to be numeric value')
+        .custom(value => value > 0).withMessage('Price has to be greater than 0'),
+    body('availability')
+        .isBoolean().withMessage('Availability has to be boolean value'),
+    handleInputErrors,
+    updateProduct
+)
 
 
+router.patch('/:id',
+    param('id').isInt().withMessage('Id has to be integer'),
+    handleInputErrors,
+    updatedAvailability
+)
+
+
+router.delete('/:id',
+    param('id').isInt().withMessage('Id has to be integer'),
+    handleInputErrors,
+    deleteProduct
+)
 
 export default router;
