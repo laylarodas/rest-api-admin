@@ -29,7 +29,7 @@ server.use(express.json());
 server.use('/api/products',router);
 
 server.get('/api', (req, res) => {
-    res.send('From API');
+    res.json({ msg: 'From API' });
 });
 
 export default server;
