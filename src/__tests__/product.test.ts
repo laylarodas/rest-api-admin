@@ -1,7 +1,7 @@
 import request from "supertest";
 import server from "../server";
 
- 
+
 describe('POST /api/products', () => {
 
     it('should display validation error', async () => {
@@ -50,7 +50,7 @@ describe('POST /api/products', () => {
     });
 
     it('should create a new product', async () => {
-       const response = await request(server)
+        const response = await request(server)
             .post('/api/products')
             //send data
             .send({
@@ -66,3 +66,27 @@ describe('POST /api/products', () => {
         expect(response.body.data).not.toHaveProperty('errors');
     });
 });
+
+
+describe('GET /api/products', () => {
+
+    it('should check if the route exists', async () => {
+        const response = await request(server)
+            .get('/api/products');
+
+        expect(response.status).not.toBe(404);
+    });
+
+    it('GET a JSON response with products', async () => {
+        const response = await request(server)
+            .get('/api/products');
+
+        expect(response.status).toBe(200);
+        expect(response.headers['content-type']).toMatch(/json/);
+        expect(response.body).toHaveProperty('data');
+        expect(response.body.data).toBeInstanceOf(Array);
+
+        expect(response.body).not.toHaveProperty('errors');
+    });
+}
+);
