@@ -116,7 +116,7 @@ router.get('/:id',
  *            application/json:
  *              schema:
  *               $ref: '#/components/schemas/Product'
- *        400:
+ *       400:
  *          description: Bad Request - Invalid input data
  */
 router.post('/',
@@ -193,6 +193,37 @@ router.put('/:id',
     handleInputErrors,
     updateProduct
 )
+
+
+
+/**
+ * @swagger
+ * /api/products/{id}:
+ *  patch:
+ *     summary: Updates the availability of a product
+ *     tags:
+ *          - Products
+ *     description: Return the updated product availability
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the product to update
+ *         required: true
+ *         schema:
+ *              type: integer
+ *     responses:
+ *       200:
+ *          description: Successfully response
+ *          content:
+ *            application/json:
+ *              schema:
+ *               $ref: '#/components/schemas/Product'
+ *       400:
+ *          description: Bad Request - Invalid ID
+ *       404:
+ *          description: Product Not Found
+ * 
+ */
 
 
 router.patch('/:id',
