@@ -88,7 +88,33 @@ router.get('/:id',
     getProductById);
 
 
-// route create product
+/**
+ * @swagger
+ * /api/products:
+ *    post:
+ *      summary: Create a new product
+ *      tags:
+ *       - Products
+ *      description: Return a new record in the database
+ *      requestBody:
+ *         required: true
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                name: 
+ *                 type: string
+ *                 example: "Curve Monitor"
+ *                price:
+ *                 type: number
+ *                 example: "300"
+ *      responses:
+ *        201:
+ *         description: Successfully created
+ *        400:
+ *          description: Bad Request - Invalid input data
+ */
 router.post('/',
     body('name')
         .notEmpty().withMessage('Name is required')
