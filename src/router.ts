@@ -50,16 +50,38 @@ const router = Router();
  *                          items:
  *                              $ref: '#/components/schemas/Product'
  */
-
-
-
-
-
-
-// route get all products
 router.get('/', getProducts)
 
-// route get product by id
+
+/**
+ * @swagger
+ * /api/products/{id}:
+ *     get:
+ *        summary: Get a product by id
+ *        tags:
+ *           - Products
+ *        description: Return a product based on its unique ID
+ *        parameters:
+ *        - in: path
+ *          name: id
+ *          description: The ID of the product to retrieve
+ *          required: true
+ *          schema:
+ *              type: integer
+ *        responses:
+ *           200:
+ *             description: Successfully Response
+ *             content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/Product'
+ *           404:
+ *              description: Product not found
+ *           400:
+ *              description: Bad Request - Invalid ID
+ * 
+ * 
+ */
 router.get('/:id',
     param('id').isInt().withMessage('Id has to be integer'),
     handleInputErrors,
