@@ -12,7 +12,6 @@ async function connectDB() {
         console.log(colors.bgCyan('Connected successfully to db'))
 
     } catch (error) {
-        console.log(error)
         console.log(colors.bgRed.white('Failed to connect to db'))
     }
 }
