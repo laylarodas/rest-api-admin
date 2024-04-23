@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1713869455381" clover="3.2.0">
-  <project timestamp="1713869455381" name="All files">
-    <metrics statements="91" coveredstatements="90" conditionals="5" coveredconditionals="5" methods="11" coveredmethods="11" elements="107" coveredelements="106" complexity="0" loc="91" ncloc="91" packages="5" files="6" classes="6"/>
+<coverage generated="1713883444581" clover="3.2.0">
+  <project timestamp="1713883444582" name="All files">
+    <metrics statements="92" coveredstatements="92" conditionals="5" coveredconditionals="5" methods="11" coveredmethods="11" elements="108" coveredelements="108" complexity="0" loc="92" ncloc="92" packages="5" files="6" classes="6"/>
     <package name="src">
-      <metrics statements="30" coveredstatements="29" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <metrics statements="31" coveredstatements="31" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="router.ts" path="C:\APIs\rest-api-admin\src\router.ts">
         <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
@@ -22,16 +22,17 @@
         <line num="63" count="2" type="stmt"/>
       </file>
       <file name="server.ts" path="C:\APIs\rest-api-admin\src\server.ts">
-        <metrics statements="16" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
         <line num="22" count="2" type="stmt"/>
         <line num="26" count="2" type="stmt"/>
@@ -118,12 +119,12 @@
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Product.model.ts" path="C:\APIs\rest-api-admin\src\models\Product.model.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
       </file>
     </package>
   </project>
